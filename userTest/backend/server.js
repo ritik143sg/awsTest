@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const sequelize = require("./utils/DB/DbConnect");
 const User = require("./models/userModel");
 const userRouter = require("./routes/userRoute");
+const path = require("path");
 
 const app = express();
 app.use(express.json());
@@ -14,6 +15,11 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 // Routing
+
+app.get("/", (req, res) => {
+  const htmlFile = path.join(__dirname, "..", "frontend", "login.html");
+  res.sendFile(htmlFile);
+});
 
 app.use("/user", userRouter);
 
