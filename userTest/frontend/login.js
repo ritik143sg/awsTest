@@ -11,7 +11,7 @@ const handleSUbmit = async (event) => {
   };
 
   try {
-    const res = await axios.post("http://localhost:8000/user/add", user);
+    const res = await axios.post("http://13.200.237.174:8000/user/add", user);
     console.log(res);
   } catch (error) {
     console.log(error);
